@@ -6,7 +6,7 @@ This project is focused on synthesizing study materials from [OpenEdg](https://e
 __AKA__: Basically my notes.
 
 > __Suggestion__:
-> Consider dedicating a minimum of 2 hours per day to successfully prepare for  the PCPP1 certification within a 3-month timeframe.
+> Consider dedicating a minimum of 2 hours per day to successfully prepare for  the PCPP1 certification within a 3-month time-frame.
 
 ## Project Objectives
 
@@ -18,22 +18,22 @@ __AKA__: Basically my notes.
 
 1. [**Introduction to the Project**](https://github.com/VCauthon/Summary-OpenEdg-Pyhon-PCPP1/tree/main/0.Introduction)
 
-2. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](https://github.com/VCauthon/Summary-OpenEdg-Pyhon-PCPP1/blob/main/1.Advanced-OOP/Introduction.ipynb)
+2. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](/1.Advanced-OOP/Introduction.ipynb)
    
    Study Time: 42 hours
 
-3. [**Best Practices and Standardization**](https://github.com/VCauthon/Summary-OpenEdg-Pyhon-PCPP1/blob/main/2.Best-Practices/Introduction.ipynb)
+3. [**Best Practices and Standardization**](/2.Best-Practices/Introduction.ipynb)
    
-    Study Time: 10 hours
+   Study Time: 10 hours
 
-4. [**Introduction to GUI Programming in Python (TkInter)**](https://github.com/VCauthon/Summary-OpenEdg-Pyhon-PCPP1/blob/main/3.GUI-Programming/Introduction.ipynb)
-   
-    Study Time: 21 hours
-
-5. [**Working with RESTful APIs**](https://github.com/VCauthon/Summary-OpenEdg-Pyhon-PCPP1/blob/main/4.RESTful-APIs/Introduction.ipynb)
+4. [**Introduction to GUI Programming in Python (TkInter)**](/3.GUI-Programming/Introduction.ipynb)
    
    Study Time: 21 hours
 
-6. [**Processing Different Kinds of Text Files**](https://github.com/VCauthon/Summary-OpenEdg-Pyhon-PCPP1/blob/main/5.File-Processing/Introduction.ipynb)
+5. [**Working with RESTful APIs**](/4.RESTful-APIs/Introduction.ipynb)
+   
+   Study Time: 21 hours
+
+6. [**Processing Different Kinds of Text Files**](/5.File-Processing/Introduction.ipynb)
    
    Study Time: 21 hours
