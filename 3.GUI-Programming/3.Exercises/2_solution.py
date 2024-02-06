@@ -4,7 +4,7 @@ import tkinter as tk
 POSITIONS = [(0, 0), (0, 200), (0, 400), (225, 0), (225, 200), (225, 400), (475, 0), (475, 200), (475, 400)]
 CURR_POSITION = 0
 
-def place(event: tk.Event):
+def set_new_position_button(event: tk.Event):
     "Change the current position from the widget"
 
     global CURR_POSITION
@@ -24,7 +24,7 @@ catch_button = tk.Button(window, text="Catch me!")
 catch_button.place(y=POSITIONS[CURR_POSITION][0], x=POSITIONS[CURR_POSITION][1])
 
 # Change button placement logic
-catch_button.bind("<Enter>", place)
+catch_button.bind("<Enter>", set_new_position_button)
 
 # Program starts
 window.mainloop()
