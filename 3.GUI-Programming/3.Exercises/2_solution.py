@@ -7,10 +7,10 @@ CURR_POSITION = 0
 def place(event: tk.Event):
     "Change the current position from the widget"
 
-    global CURR_POSITION, catch_button
+    global CURR_POSITION
     CURR_POSITION += 1
     new_position = POSITIONS[CURR_POSITION % len(POSITIONS)]
-    catch_button.place(y=new_position[0], x=new_position[1])
+    event.widget.place(y=new_position[0], x=new_position[1])
 
 
 # Windows creation
