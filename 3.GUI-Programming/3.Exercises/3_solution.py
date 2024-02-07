@@ -15,7 +15,7 @@ class button_created:
 
 
 def get_lesser_active_number(curr_list: List[int], min_number: int = None):
-    "Retrieves the number more little"
+    "Retrieves the smallest number in the list"
 
     # Checks if the current number is the lesser one    
     curr_number = curr_list.pop(0)
