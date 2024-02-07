@@ -14,12 +14,12 @@ class button_created:
     height = 2
 
 
-def get_lesser_active_number(curr_list: List[int], min_number: int = None):
+def get_lesser_active_number(curr_list: List[int], min_number: int = None) -> int:
     "Retrieves the smallest number in the list"
 
     # Checks if the current number is the lesser one    
     curr_number = curr_list.pop(0)
-    if not min_number:
+    if not min_number:  # First iteration
         min_number = curr_number
     elif curr_number < min_number:
         min_number = curr_number
