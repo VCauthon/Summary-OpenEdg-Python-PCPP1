@@ -1,4 +1,4 @@
-# Summary-OpenEdg-Pyhon-PCPP1 ☆ ～('▽^人)
+# Summary-OpenEdg-Python-PCPP1 ☆ ～('▽^人)
 
 
 This project is focused on synthesizing study materials from [OpenEdg](https://edube.org/) using Jupyter Notebooks with the aim of preparing for the [PCPP1 certification](https://pythoninstitute.org/pcpp1).
