@@ -34,7 +34,6 @@ def clicking_button(event: tk.Event) -> None:
 
     # The selected button is empty
     if sel_button.set is None:
-
         # User movements
         sel_button.move_user()
         _check_game_ended_by(Owner.USER)
@@ -44,19 +43,23 @@ def clicking_button(event: tk.Event) -> None:
         _check_game_ended_by(Owner.COMPUTER)
 
         # The game has ended without winners
-        if not [row_b for col_b in list_buttons for row_b in col_b if row_b.set is None]:
+        if not [
+            row_b for col_b in list_buttons for row_b in col_b if row_b.set is None
+        ]:
             _end_game()
 
 
 def _get_button_poss(widget: tk.Widget) -> Position:
-    return next((
-        row_b for col_b in list_buttons
-        for row_b in col_b
-        if row_b.widget == widget), None)
+    return next(
+        (row_b for col_b in list_buttons for row_b in col_b if row_b.widget == widget),
+        None,
+    )
 
 
 def _decide_computer_movement() -> Position:
-    empty_positions = [row_b for col_b in list_buttons for row_b in col_b if row_b.set is None]
+    empty_positions = [
+        row_b for col_b in list_buttons for row_b in col_b if row_b.set is None
+    ]
     return empty_positions[randrange(0, len(empty_positions))]
 
 
@@ -77,7 +80,10 @@ def _check_game_ended_by(player) -> None:
 
 
 def _get_moves_from(player: int) -> List[List[bool]]:
-    return [[True if col_p[p].set==player else False for p in range(3)] for col_p in list_buttons]
+    return [
+        [True if col_p[p].set == player else False for p in range(3)]
+        for col_p in list_buttons
+    ]
 
 
 def _check_lineal_win(moves_made: List[bool]) -> bool:
@@ -85,13 +91,12 @@ def _check_lineal_win(moves_made: List[bool]) -> bool:
 
 
 def _check_diagonal_win(table: List[List[bool]]) -> bool:
-
     # Check the first diagonal
     if all([table[val][val] for val in range(3)]):
         return True
 
     # Check the second diagonal
-    if all([table[val][-(val+1)] for val in range(3)]):
+    if all([table[val][-(val + 1)] for val in range(3)]):
         return True
 
     return False
@@ -115,7 +120,7 @@ wnd.resizable(False, False)
 list_buttons: List[List[Position]] = []
 for column in range(3):
     column_created: List[Position] = []
-    
+
     # Creates the buttons and place it into the GUI
     for row in range(3):
         column_created.append(Position(tk.Button(wnd, height=10, width=20)))

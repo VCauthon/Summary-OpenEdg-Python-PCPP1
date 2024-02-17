@@ -2,13 +2,16 @@ from typing import Tuple, List
 from tkinter import Tk, Button, Canvas
 
 
-PHASES = ((True,  False, False),
-        (True,  True,  False),
-        (False, False, True),
-        (False, True,  False))
+PHASES = (
+    (True, False, False),
+    (True, True, False),
+    (False, False, True),
+    (False, True, False),
+)
 current_position = 0
 
 # Write your code here
+
 
 def switch_next_lights() -> None:
     _update_lights(PHASES[_update_position(+1)])
@@ -25,7 +28,11 @@ def _update_position(act: int) -> int:
 
 
 def _update_lights(state: Tuple[bool, bool, bool]) -> None:
-    lights: List[Tuple[Canvas, str]] = [(light_1, "red"), (light_2, "yellow"), (light_3, "green")]
+    lights: List[Tuple[Canvas, str]] = [
+        (light_1, "red"),
+        (light_2, "yellow"),
+        (light_3, "green"),
+    ]
     for index, curr in enumerate(state):
         if curr:
             _set_light(*lights[index])  # Sends the light and its color
@@ -33,7 +40,7 @@ def _update_lights(state: Tuple[bool, bool, bool]) -> None:
             _set_light(lights[index][0])  # Only sends its light
 
 
-def _set_light(canvas: Canvas, color: str="grey"):
+def _set_light(canvas: Canvas, color: str = "grey"):
     canvas.create_oval(10, 10, 170, 170, outline="black", fill=color, width=5)
 
 

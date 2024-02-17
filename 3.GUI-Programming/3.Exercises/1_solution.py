@@ -3,6 +3,7 @@ from dataclasses import dataclass
 import tkinter as tk
 from tkinter import messagebox
 
+
 @dataclass
 class OptionsField:
     entry: tk.Entry
@@ -18,45 +19,42 @@ def is_float(s):
 
 
 def calculate():
-
     entry_field_1 = OptionsField(
-            entry=field_1,
-            value=input_1,
-        )
+        entry=field_1,
+        value=input_1,
+    )
     entry_field_2 = OptionsField(
-            entry=field_2,
-            value=input_2,
-        )
+        entry=field_2,
+        value=input_2,
+    )
 
     entry_field_1.entry.config(background="white")
     entry_field_2.entry.config(background="white")
 
     print(operation.get())
     if is_float(entry_field_1.value.get()) and is_float(entry_field_2.value.get()):
-            
-            val1 = float(entry_field_1.value.get())
-            val2 = float(entry_field_2.value.get())
-            
-            if operation.get()=="+":
-                total = val1 + val2
-            elif operation.get()=="-":
-                total = val1 - val2
-            elif operation.get()=="*":
-                total = val1 * val2
-            elif operation.get()=="/":
-                total = val1 / val2
-            messagebox.showinfo("Response",
-                                f"Total\n{val1}{operation.get()}{val2}={total}")
+        val1 = float(entry_field_1.value.get())
+        val2 = float(entry_field_2.value.get())
+
+        if operation.get() == "+":
+            total = val1 + val2
+        elif operation.get() == "-":
+            total = val1 - val2
+        elif operation.get() == "*":
+            total = val1 * val2
+        elif operation.get() == "/":
+            total = val1 / val2
+        messagebox.showinfo("Response", f"Total\n{val1}{operation.get()}{val2}={total}")
     else:
-        # The exercise says that focus should be used, however, setting a red border is better considering 
+        # The exercise says that focus should be used, however, setting a red border is better considering
         # that both fields can be misinformed
         if not is_float(entry_field_1.value.get()) or not entry_field_1.value.get():
             entry_field_1.entry.config(background="red")
         if not is_float(entry_field_2.value.get()) or not entry_field_2.value.get():
             entry_field_2.entry.config(background="red")
-        
+
         messagebox.showerror("Error", "There are invalid data into the fields")
-        
+
 
 window = tk.Tk()
 window.title("Calculator")

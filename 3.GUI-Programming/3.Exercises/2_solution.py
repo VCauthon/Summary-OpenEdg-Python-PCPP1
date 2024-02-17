@@ -1,8 +1,19 @@
 import tkinter as tk
 
 
-POSITIONS = [(0, 0), (0, 200), (0, 400), (225, 0), (225, 200), (225, 400), (475, 0), (475, 200), (475, 400)]
+POSITIONS = [
+    (0, 0),
+    (0, 200),
+    (0, 400),
+    (225, 0),
+    (225, 200),
+    (225, 400),
+    (475, 0),
+    (475, 200),
+    (475, 400),
+]
 CURR_POSITION = 0
+
 
 def set_new_position_button(event: tk.Event):
     "Change the current position from the widget"

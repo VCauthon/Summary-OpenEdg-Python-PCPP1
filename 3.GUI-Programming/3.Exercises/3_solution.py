@@ -17,7 +17,7 @@ class button_created:
 def get_lesser_active_number(curr_list: List[int], min_number: int = None) -> int:
     "Retrieves the smallest number in the list"
 
-    # Checks if the current number is the lesser one    
+    # Checks if the current number is the lesser one
     curr_number = curr_list.pop(0)
     if not min_number:  # First iteration
         min_number = curr_number
@@ -32,16 +32,14 @@ def get_lesser_active_number(curr_list: List[int], min_number: int = None) -> in
 
 
 def button_clicked(event: tk.Event):
-
     global curr_lesser_number, buttons_displayed
 
     selected_button: button_created = next(
-        butt for butt in buttons_displayed
-        if butt.widget == event.widget)
+        butt for butt in buttons_displayed if butt.widget == event.widget
+    )
 
     # Disable the button and detect the next one
     if selected_button.number == curr_lesser_number:
-
         selected_button.active = False
         selected_button.widget.config(state="disabled")
 
@@ -71,8 +69,11 @@ def update_timer():
 
 def game_lost(timer: int):
     if timer == 0:
-        messagebox.showerror("You lose", "The counter has reached 0 before the end of the game")
+        messagebox.showerror(
+            "You lose", "The counter has reached 0 before the end of the game"
+        )
         window.destroy()
+
 
 # Windows creation
 window = tk.Tk()
@@ -83,13 +84,15 @@ window.resizable(width=False, height=False)
 # Creating all the buttons
 buttons_displayed = [button_created(num) for num in sample(range(1, 999), k=25)]
 for index, butt in enumerate(buttons_displayed):
-    butt.widget = tk.Button(window, height=butt.height, width=butt.width, text=butt.number)
+    butt.widget = tk.Button(
+        window, height=butt.height, width=butt.width, text=butt.number
+    )
     butt.widget.bind("<Button-1>", button_clicked)
     butt.widget.grid(row=index % 5, column=index // 5)
 
 curr_lesser_number = get_lesser_active_number(
-        [butt.number for butt in buttons_displayed
-         if butt.active])
+    [butt.number for butt in buttons_displayed if butt.active]
+)
 
 # Adds the timer
 concrete_time = 100
