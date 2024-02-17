@@ -1,30 +1,31 @@
 from dataclasses import dataclass
-from typing import List
+from enum import Enum, auto
+from typing import List, Optional
 import tkinter as tk
 from tkinter import messagebox
 from random import randrange
 import sys
 
 
-class Owner:
-    User="user"
-    Computer="computer"
+class Owner(Enum):
+    USER = auto()
+    COMPUTER = auto()
 
 
 class PositionActions:
     def move_computer(self):
         self.widget.config(text="X", fg="red")
-        self.set = Owner.Computer
+        self.set = Owner.COMPUTER
 
     def move_user(self):
         self.widget.config(text="O", fg="green")
-        self.set = Owner.User
+        self.set = Owner.USER
 
 
 @dataclass
 class Position(PositionActions):
     widget: tk.Button
-    set: Owner = None
+    set: Optional[Owner] = None
 
 
 def clicking_button(event: tk.Event) -> None:
@@ -36,11 +37,15 @@ def clicking_button(event: tk.Event) -> None:
 
         # User movements
         sel_button.move_user()
-        _check_game_ended_by(Owner.User)
+        _check_game_ended_by(Owner.USER)
 
         # Computer movements
         _decide_computer_movement().move_computer()
-        _check_game_ended_by(Owner.Computer)
+        _check_game_ended_by(Owner.COMPUTER)
+
+        # The game has ended without winners
+        if not [row_b for col_b in list_buttons for row_b in col_b if row_b.set is None]:
+            _end_game()
 
 
 def _get_button_poss(widget: tk.Widget) -> Position:
@@ -61,17 +66,18 @@ def _check_game_ended_by(player) -> None:
     if _check_diagonal_win(table):
         _end_game(player)
 
-    # Check for lineal movements that wins the game
-    for diagonal_check in range(3):
-        h_win = _check_lineal_win(table[diagonal_check])
-        v_win = _check_lineal_win([col[diagonal_check] for col in table])
+    else:
+        # Check for lineal movements that wins the game
+        for diagonal_check in range(3):
+            v_win = _check_lineal_win(table[diagonal_check])
+            h_win = _check_lineal_win([col[diagonal_check] for col in table])
 
-        if h_win or v_win:
-            _end_game(player)
+            if h_win or v_win:
+                _end_game(player)
 
 
 def _get_moves_from(player: int) -> List[List[bool]]:
-    return [[True if row_p.set==player else False for row_p in col_p] for col_p in list_buttons]
+    return [[True if col_p[p].set==player else False for p in range(3)] for col_p in list_buttons]
 
 
 def _check_lineal_win(moves_made: List[bool]) -> bool:
@@ -91,14 +97,19 @@ def _check_diagonal_win(table: List[List[bool]]) -> bool:
     return False
 
 
-def _end_game(player: str):
-    messagebox.showinfo("Game ended", f"The {player} has won the game")
-    wnd.after(100, sys.exit)
+def _end_game(player: Owner = None):
+    if player:
+        messagebox.showinfo("Game ended", f"The {player.name.title()} has won the game")
+    else:
+        messagebox.showinfo("Game ended", "No one has won the game")
+    wnd.destroy()
+    wnd.after(0, sys.exit)
 
 
 # Window creation
 wnd = tk.Tk()
 wnd.title("TicTacToe")
+wnd.resizable(False, False)
 
 # Adding buttons
 list_buttons: List[List[Position]] = []
