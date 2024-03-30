@@ -1,6 +1,13 @@
 {
   "cars": [
     {
+      "id": 1,
+      "brand": "Ford",
+      "model": "Mustang",
+      "production_year": 1972,
+      "convertible": true
+    },
+    {
       "id": 2,
       "brand": "Chevrolet",
       "model": "Camaro",
