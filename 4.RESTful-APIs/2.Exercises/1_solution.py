@@ -34,7 +34,7 @@ def fake_cli(*args):
 
     except socket.timeout:
         error_raiser(3)
-    except socket.gaierror as err:
+    except socket.gaierror:
         error_raiser(4)
 
 
