@@ -1,5 +1,5 @@
 from typing import Optional
-import socket
+import request
 
 
 def HTTP_message(http_type: str, direction: str):
