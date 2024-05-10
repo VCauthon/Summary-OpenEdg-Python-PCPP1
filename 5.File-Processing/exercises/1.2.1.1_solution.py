@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 import sqlite3
-from typing import List, Tuple
+from typing import List
 
 
 @dataclass
