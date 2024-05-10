@@ -9,10 +9,15 @@ class Task:
     name: str
     priority: int
 
-# TODO: Empty task can't be added
-# TODO: Task lesser than 0 can't be added
-# TODO: Add decorator of autocommit ?
-# TODO: If you add the same register again
+def autocommit(func):
+    # Commits anything that the function has sent to the DB
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        instance: TODO = args[0]
+        instance.session.commit()
+        return result
+    return wrapper
+
 
 class TODO:
 
@@ -21,11 +26,12 @@ class TODO:
         self.cursor = self.session.cursor()
         self.__set_table()
 
+    @autocommit
     def __set_table(self):
         self.cursor.execute(
             'CREATE TABLE IF NOT EXISTS tasks (id INTEGER PRIMARY KEY, name TEXT NOT NULL, priority INTEGER NOT NULL);')
-        self.session.commit()
 
+    @autocommit
     def enter_task(self, todo: str, priority: int) -> None:
         if not todo or not priority:
             print("The method that creates function hasn't received all the expected arguments")
@@ -37,8 +43,6 @@ class TODO:
             # Inserts a new task
             else:
                 self.cursor.execute('INSERT INTO tasks (name, priority) VALUES (?, ?)', (todo, priority))
-
-            self.session.commit()
             return True
 
     def find_task(self, todo: str) -> Task:
