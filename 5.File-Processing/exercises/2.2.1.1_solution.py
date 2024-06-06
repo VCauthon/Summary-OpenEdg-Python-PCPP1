@@ -8,7 +8,7 @@ from xml.etree.cElementTree import Element
 class TemperatureConverter:
     @staticmethod
     def convert_celsius_to_fahrenheit(celsius: int):
-        return round(9/5 * celsius + 32, 1)
+        return round(9 / 5 * celsius + 32, 1)
 
 
 class ForecastXmlParser:
@@ -29,7 +29,7 @@ class ForecastXmlParser:
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(__file__))
-    
+
     forecast = ForecastXmlParser("../persistance/forecast.xml")
 
     for day in forecast.parse():

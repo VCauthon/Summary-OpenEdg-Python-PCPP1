@@ -17,9 +17,11 @@ class Product:
 
 
 product_loaded = [
-    Product("Good Morning Sunshine", "cereals", "OpenEDG Testing Service", "9.90", "USD"),
+    Product(
+        "Good Morning Sunshine", "cereals", "OpenEDG Testing Service", "9.90", "USD"
+    ),
     Product("Spaguetti Veganietto", "pasta", "Programmers Eat Pasta", "15.49", "EUR"),
-    Product("Fantastic Almond Milk", "beverages", "Drinks4Coders Inc.", "19.75", "USD")
+    Product("Fantastic Almond Milk", "beverages", "Drinks4Coders Inc.", "19.75", "USD"),
 ]
 
 
@@ -49,9 +51,4 @@ if __name__ == "__main__":
     # Creating the ElementTree that will save te results
     rootTree = ET.ElementTree(root)
     rootTree.write_c14n
-    rootTree.write(
-        "../persistance/shop.xml",
-        encoding="utf-8",
-        xml_declaration=True)
-
-
+    rootTree.write("../persistance/shop.xml", encoding="utf-8", xml_declaration=True)
