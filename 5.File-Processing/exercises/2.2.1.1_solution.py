@@ -1,4 +1,6 @@
+import os
 from typing import Iterator, Tuple
+
 import xml.etree.ElementTree as ET
 from xml.etree.cElementTree import Element
 
@@ -26,7 +28,9 @@ class ForecastXmlParser:
 
 
 if __name__ == "__main__":
-    forecast = ForecastXmlParser("5.File-Processing/exercises/forecast.xml")
+    os.chdir(os.path.dirname(__file__))
+    
+    forecast = ForecastXmlParser("../persistance/forecast.xml")
 
     for day in forecast.parse():
         print(day)

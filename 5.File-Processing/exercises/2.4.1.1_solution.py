@@ -1,7 +1,8 @@
 from dataclasses import dataclass, asdict
-from os import path
+import os
 from typing import Dict
 import xml.etree.ElementTree as ET
+
 
 @dataclass
 class Product:
@@ -21,6 +22,7 @@ product_loaded = [
     Product("Fantastic Almond Milk", "beverages", "Drinks4Coders Inc.", "19.75", "USD")
 ]
 
+
 def load_product(root: ET.Element, product: Product) -> None:
     sub_element = ET.SubElement(root, "product", {"name": product.name})
     for key, val in product.get_attributes().items():
@@ -28,25 +30,28 @@ def load_product(root: ET.Element, product: Product) -> None:
         property.text = val
         sub_element.append(property)
 
-# Creating the element shopt
-subroot = ET.Element("category")
-subroot.set("name", "Vegan Products")
 
-# Appending all the products
-for product in product_loaded:
-    load_product(root=subroot, product=product)
+if __name__ == "__main__":
+    os.chdir(os.path.dirname(__file__))
 
-# Creating the root element
-root = ET.Element("shop")
-root.append(subroot)
+    # Creating the element shopt
+    subroot = ET.Element("category")
+    subroot.set("name", "Vegan Products")
 
-# Creating the ElementTree that will save te results
-saving_path = path.join(path.dirname(path.abspath(__file__)),"shop.xml")
-rootTree = ET.ElementTree(root)
-rootTree.write_c14n
-rootTree.write(
-    saving_path,
-    encoding="utf-8",
-    xml_declaration=True)
+    # Appending all the products
+    for product in product_loaded:
+        load_product(root=subroot, product=product)
+
+    # Creating the root element
+    root = ET.Element("shop")
+    root.append(subroot)
+
+    # Creating the ElementTree that will save te results
+    rootTree = ET.ElementTree(root)
+    rootTree.write_c14n
+    rootTree.write(
+        "../persistance/shop.xml",
+        encoding="utf-8",
+        xml_declaration=True)
 
 
