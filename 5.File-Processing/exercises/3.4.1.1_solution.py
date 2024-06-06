@@ -32,15 +32,15 @@ class SummaryNotes:
     def __parse_subject_notes(path_notes: str) -> List[Results]:
         results = []
 
-        with open(path_notes, newline='') as file:
+        with open(path_notes, newline="") as file:
             data = csv.DictReader(file)
             for score in data:
                 results.append(
                     Results(
-                        exam=score.get('Exam Name'),
-                        id=score.get('Candidate ID'),
-                        score=int(score.get('Score')),
-                        grade=True if score.get('Grade')=='Pass' else False
+                        exam=score.get("Exam Name"),
+                        id=score.get("Candidate ID"),
+                        score=int(score.get("Score")),
+                        grade=True if score.get("Grade") == "Pass" else False,
                     )
                 )
 
@@ -53,7 +53,6 @@ class SummaryNotes:
         for subject in summary:
             subject.total_candidates = len(subject.candidates)
             for candidate in subject.candidates:
-
                 if candidate.score == 33:
                     print("hi")
 
@@ -62,51 +61,75 @@ class SummaryNotes:
                 else:
                     subject.total_failed += 1
 
-                subject.best_score = candidate.score if candidate.score > subject.best_score else subject.best_score
-                subject.worst_score = candidate.score if candidate.score < subject.worst_score else subject.worst_score
+                subject.best_score = (
+                    candidate.score
+                    if candidate.score > subject.best_score
+                    else subject.best_score
+                )
+
+                subject.worst_score = (
+                    candidate.score
+                    if candidate.score < subject.worst_score
+                    else subject.worst_score
+                )
 
         return summary
 
     @staticmethod
-    def __splitting_results_by_subject(raw_results: List[Results]) -> List[SubjectNotes]:
+    def __splitting_results_by_subject(
+        raw_results: List[Results],
+    ) -> List[SubjectNotes]:
         summary: List[SubjectNotes] = []
 
         # Splitting results by subject
         for result in raw_results:
-
             # Adds the result into its group
-            if concrete_subject := next((det for det in summary if det.exam_name == result.exam), None):
-
+            if concrete_subject := next(
+                (det for det in summary if det.exam_name == result.exam), None
+            ):
                 # Only unique candidates will be added
-                if not next((can for can in concrete_subject.candidates if can.id==result.id), None):
+                if not next(
+                    (can for can in concrete_subject.candidates if can.id == result.id),
+                    None,
+                ):
                     concrete_subject.candidates.append(result)
 
             # Create a new group because it doesn't belong into any existing one
             else:
-                summary.append(
-                    SubjectNotes(
-                        exam_name=result.exam,
-                        candidates=[result]))
+                summary.append(SubjectNotes(exam_name=result.exam, candidates=[result]))
 
         return summary
 
     def save_summary(self, path: str) -> None:
-        with open(path, '+w', newline='') as file:
-            new_csv = csv.DictWriter(file, fieldnames=['Exam Name', 'Number of Candidates', 'Number of Passed Exams', 'Number of Failed Exams', 'Best Score', 'Worst Score'])
+        with open(path, "+w", newline="") as file:
+            new_csv = csv.DictWriter(
+                file,
+                fieldnames=[
+                    "Exam Name",
+                    "Number of Candidates",
+                    "Number of Passed Exams",
+                    "Number of Failed Exams",
+                    "Best Score",
+                    "Worst Score",
+                ],
+            )
 
             new_csv.writeheader()
             for subject in self.summary:
-                new_csv.writerow({
-                    'Exam Name': subject.exam_name,
-                    'Number of Candidates': subject.total_candidates,
-                    'Number of Passed Exams': subject.total_passed,
-                    'Number of Failed Exams': subject.total_failed,
-                    'Best Score': subject.best_score,
-                    'Worst Score': subject.worst_score
-                })
+                new_csv.writerow(
+                    {
+                        "Exam Name": subject.exam_name,
+                        "Number of Candidates": subject.total_candidates,
+                        "Number of Passed Exams": subject.total_passed,
+                        "Number of Failed Exams": subject.total_failed,
+                        "Best Score": subject.best_score,
+                        "Worst Score": subject.worst_score,
+                    }
+                )
+
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(__file__))
 
-    summary_results = SummaryNotes('../persistance/exam_results.csv')
-    summary_results.save_summary('../persistance/exam_results_summary.csv')
+    summary_results = SummaryNotes("../persistance/exam_results.csv")
+    summary_results.save_summary("../persistance/exam_results_summary.csv")
