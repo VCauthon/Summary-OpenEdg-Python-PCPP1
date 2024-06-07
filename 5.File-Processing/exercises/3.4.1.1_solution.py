@@ -53,25 +53,14 @@ class SummaryNotes:
         for subject in summary:
             subject.total_candidates = len(subject.candidates)
             for candidate in subject.candidates:
-                if candidate.score == 33:
-                    print("hi")
 
                 if candidate.grade:
                     subject.total_passed += 1
                 else:
                     subject.total_failed += 1
 
-                subject.best_score = (
-                    candidate.score
-                    if candidate.score > subject.best_score
-                    else subject.best_score
-                )
-
-                subject.worst_score = (
-                    candidate.score
-                    if candidate.score < subject.worst_score
-                    else subject.worst_score
-                )
+                subject.best_score = max(subject.best_score, candidate.score)
+                subject.worst_score = min(subject.worst_score, candidate.score)
 
         return summary
 
@@ -88,10 +77,7 @@ class SummaryNotes:
                 (det for det in summary if det.exam_name == result.exam), None
             ):
                 # Only unique candidates will be added
-                if not next(
-                    (can for can in concrete_subject.candidates if can.id == result.id),
-                    None,
-                ):
+                if not any(can for can in concrete_subject.candidates if can.id == result.id):
                     concrete_subject.candidates.append(result)
 
             # Create a new group because it doesn't belong into any existing one
