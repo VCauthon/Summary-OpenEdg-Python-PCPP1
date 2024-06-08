@@ -16,10 +16,10 @@ __AKA__: Basically my notes.
 
 ## Topics Covered
 
-2. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](./1.Advanced-OOP/README.md)
-3. [**Best Practices and Standardization**](./2.Best-Practices/README.md)
-4. [**Introduction to GUI Programming in Python (TkInter)**](./3.GUI-Programming/README.md)
-5. [**Working with RESTful APIs**](./4.RESTful-APIs/README.md)
-6. [**Processing Different Kinds of Text Files**](./5.File-Processing/README.md)
+1. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](./1.Advanced-OOP/README.md)
+2. [**Best Practices and Standardization**](./2.Best-Practices/README.md)
+3. [**Introduction to GUI Programming in Python (TkInter)**](./3.GUI-Programming/README.md)
+4. [**Working with RESTful APIs**](./4.RESTful-APIs/README.md)
+5. [**Processing Different Kinds of Text Files**](./5.File-Processing/README.md)
 
 
