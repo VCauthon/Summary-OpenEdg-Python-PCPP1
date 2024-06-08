@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from xml.etree import ElementTree
 from typing import List
+import os
 
 
 @dataclass
@@ -43,11 +44,14 @@ def print_data(header: List[str], data: List[Stock]) -> None:
     for row in data:
         print(row)
 
+if __name__ == "__main__":
 
-try:
-    data = get_data("quote", get_xml_data("4.RESTful-APIs/2.Exercises/nyse.xml"))
-    print_data(header=get_headers(data), data=get_rows_of_data(data))
-except FileNotFoundError:
-    print("The file retrieved hasn't been found")
-except ElementTree.ParseError as err:
-    print(f"XML parsing error: {err}")
+    os.chdir(os.path.dirname(__file__))
+
+    try:
+        data = get_data("quote", get_xml_data("../persistance/nyse.xml"))
+        print_data(header=get_headers(data), data=get_rows_of_data(data))
+    except FileNotFoundError:
+        print("The file retrieved hasn't been found")
+    except ElementTree.ParseError as err:
+        print(f"XML parsing error: {err}")

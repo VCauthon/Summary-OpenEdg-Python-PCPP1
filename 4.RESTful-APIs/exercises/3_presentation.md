@@ -11,11 +11,11 @@ Learn how to:
 
 ## Scenario
 Download and open the following XML file in your favorite text editor:
-[nyse.xml](./nyse.xml)
+[nyse.xml](../persistance/nyse.xml)
 
 It's a small excerpt of the New York Stock Exchange quotes list. Take a look at it and analyze its structure. You need to do this as your task is to write a code which reads the data and presents it in a form similar to this one:
 
-![Command prompt](./media/3_presentation.png)
+![Command prompt](../media/3_presentation.png)
 
 Hints:
 

@@ -13,9 +13,9 @@ Learn how to:
 ## Scenario
 Take a look at these two screenshots. They present two different use cases of the same program:
 
-![command prompt 1](./media/2_presentation_1.png)
+![command prompt 1](../media/2_presentation_1.png)
 
-![command prompt 2](./media/2_presentation_2.png)
+![command prompt 2](../media/2_presentation_2.png)
 
 Your task is to write a code which has exactly the same conversation with the user and:
 

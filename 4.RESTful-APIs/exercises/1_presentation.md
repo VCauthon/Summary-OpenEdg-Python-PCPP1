@@ -33,4 +33,4 @@ Hints:
 
 Assuming that the tool is placed in a source file name sitechecker.py, here are some real-use cases:
 
-![Command prompt](./media/1_presentation.png)
+![Command prompt](../media/1_presentation.png)
