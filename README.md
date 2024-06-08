@@ -16,26 +16,10 @@ __AKA__: Basically my notes.
 
 ## Topics Covered
 
-1. [**Introduction to the Project**](https://github.com/VCauthon/Summary-OpenEdg-Pyhon-PCPP1/tree/main/0.Introduction)
-
-2. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](/1.Advanced-OOP/Introduction.ipynb)
-   
-   Study Time: 42 hours
-
-3. [**Best Practices and Standardization**](/2.Best-Practices/Introduction.ipynb)
-   
-   Study Time: 10 hours
-
-4. [**Introduction to GUI Programming in Python (TkInter)**](/3.GUI-Programming/Introduction.ipynb)
-   
-   Study Time: 21 hours
-
-5. [**Working with RESTful APIs**](/4.RESTful-APIs/Introduction.ipynb)
-   
-   Study Time: 21 hours
-
-6. [**Processing Different Kinds of Text Files**](/5.File-Processing/Introduction.ipynb)
-   
-   Study Time: 21 hours
+2. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](./1.Advanced-OOP/README.md)
+3. [**Best Practices and Standardization**](./2.Best-Practices/README.md)
+4. [**Introduction to GUI Programming in Python (TkInter)**](./3.GUI-Programming/README.md)
+5. [**Working with RESTful APIs**](./4.RESTful-APIs/README.md)
+6. [**Processing Different Kinds of Text Files**](./5.File-Processing/README.md)
 
 
