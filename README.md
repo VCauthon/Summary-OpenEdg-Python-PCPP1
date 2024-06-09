@@ -1,18 +1,8 @@
 # Summary-OpenEdg-Python-PCPP1 ☆ ～('▽^人)
 
-
 This project is focused on synthesizing study materials from [OpenEdg](https://edube.org/) using Jupyter Notebooks with the aim of preparing for the [PCPP1 certification](https://pythoninstitute.org/pcpp1).
 
 __AKA__: Basically my notes.
-
-> __Suggestion__:
-> Consider dedicating a minimum of 2 hours per day to successfully prepare for  the PCPP1 certification within a 3-month time-frame.
-
-## Project Objectives
-
-- Condense the content.
-- Solve exercises.
-- Generate tests to solidify the studied material.
 
 ## Topics Covered
 
@@ -22,4 +12,8 @@ __AKA__: Basically my notes.
 4. [**Working with RESTful APIs**](./4.RESTful-APIs/README.md)
 5. [**Processing Different Kinds of Text Files**](./5.File-Processing/README.md)
 
+## Exam preparation
 
+- [EXAMTOPICS](https://www.examtopics.com/exams/python-institute/pcpp-32-101)
+- [anthhonyainer/pcpp1_certification_dumps](https://github.com/anthonywainer/pcpp1_certification_dumps/tree/main/dumps)
+- [Exam Syllabus](https://pythoninstitute.org/assets/628def5091da2303121759.pdf)
