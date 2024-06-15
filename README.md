@@ -14,6 +14,7 @@ __AKA__: Basically my notes.
 
 ## Exam preparation
 
+- [Quizlet](https://quizlet.com/user/victormasmon/folders/pcpp1?funnelUUID=d1998b7f-a23a-4c99-92d8-76365e68aef6)
 - [EXAMTOPICS](https://www.examtopics.com/exams/python-institute/pcpp-32-101)
 - [anthhonyainer/pcpp1_certification_dumps](https://github.com/anthonywainer/pcpp1_certification_dumps/tree/main/dumps)
 - [Exam Syllabus](https://pythoninstitute.org/assets/628def5091da2303121759.pdf)
