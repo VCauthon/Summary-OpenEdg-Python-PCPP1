@@ -6,11 +6,11 @@ __AKA__: Basically my notes.
 
 ## Topics Covered
 
-1. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](./1.Advanced-OOP/README.md)
-2. [**Best Practices and Standardization**](./2.Best-Practices/README.md)
-3. [**Introduction to GUI Programming in Python (TkInter)**](./3.GUI-Programming/README.md)
-4. [**Working with RESTful APIs**](./4.RESTful-APIs/README.md)
-5. [**Processing Different Kinds of Text Files**](./5.File-Processing/README.md)
+1. [**Advanced Perspective of Classes and Object-Oriented Programming in Python**](./1.Advanced-OOP/README.md) > [Test](https://quizlet.com/es/924468050/module-1-advanced-perspective-of-classes-and-object-oriented-programming-in-python-flash-cards/?x=1jqU&i=4l6l0h)
+2. [**Best Practices and Standardization**](./2.Best-Practices/README.md) > [Test](https://quizlet.com/es/928451448/module-2-best-practices-and-standardization-flash-cards/?x=1jqU&i=4l6l0h)
+3. [**Introduction to GUI Programming in Python (TkInter)**](./3.GUI-Programming/README.md) > [Test](https://quizlet.com/es/928451452/module-3-introduction-to-gui-programming-in-python-tkinter-flash-cards/?x=1jqU&i=4l6l0h)
+4. [**Working with RESTful APIs**](./4.RESTful-APIs/README.md) > [Test](https://quizlet.com/es/928451456/module-4-working-with-restful-apis-flash-cards/?x=1jqU&i=4l6l0h)
+5. [**Processing Different Kinds of Text Files**](./5.File-Processing/README.md) > [Test](https://quizlet.com/es/928451459/module-5-processing-different-kinds-of-text-files-flash-cards/?x=1jqU&i=4l6l0h)
 
 ## Exam preparation
 
